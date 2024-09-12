@@ -1,13 +1,14 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../../src/App.css'
+import { addBoard } from '../api/boards';
 
 
 const Boards = ({ posts, setPosts, setSelectedPost }) => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
 
-  const handleAddPost = () => {
+  const handleAddPost = async() => {
     if (title && content) {
       const idList = posts.map(post => post.id).sort((a, b) => a - b);
       const newId =  (idList.find((element)=>element > idList.indexOf(element)+1))-1 || idList.length + 1;
@@ -16,7 +17,7 @@ const Boards = ({ posts, setPosts, setSelectedPost }) => {
         title,
         content
       };
-      setPosts([...posts, newPost]);
+      setPosts([...posts, date]);
       setTitle('');
       setContent('');
     }
