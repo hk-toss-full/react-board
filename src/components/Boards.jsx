@@ -11,19 +11,6 @@ const Boards = ({ posts, setPosts, setSelectedPost }) => {
     if (title && content) {
       const idList = posts.map(post => post.id).sort((a, b) => a - b);
       const newId =  (idList.find((element)=>element > idList.indexOf(element)+1))-1 || idList.length + 1;
-      /*
-      let newId;
-      const idList = posts.map(post => post.id).sort((a, b) => a - b);
-      for (let i = 1; i <= idList.length; i++) {
-        if (!idList.includes(i)) {
-          newId = i; // 빈 ID를 찾으면 해당 ID를 사용
-          break;
-        }
-      }
-      // 만약 빈 ID가 없으면 가장 큰 값 + 1을 사용
-      if (!newId) {
-        newId = idList.length + 1;
-      }  */
       const newPost = {
         id: newId,  // 비어있는 가장 작은 ID 부여
         title,
