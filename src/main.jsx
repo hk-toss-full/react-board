@@ -6,6 +6,7 @@ import Boards from './components/Boards';
 import BoardDetail from './components/BoardDetail.jsx';
 import { api } from './api/index.js';
 import Register from './components/Register.jsx';
+import Login from './components/Login.jsx';
 
 const Main = () => {
   const [posts, setPosts] = useState([]);
@@ -32,6 +33,7 @@ const Main = () => {
           path='/register'
           element={<Register/>}
         />
+        <Route path='/login' element={<Login/>}/>
       </Routes>
     </Router>
   );
