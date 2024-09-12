@@ -7,12 +7,13 @@ import BoardDetail from './components/BoardDetail.jsx';
 import { api } from './api/index.js';
 import Register from './components/Register.jsx';
 import Login from './components/Login.jsx';
+import { getBoards } from './api/boards.js';
 
 const Main = () => {
   const [posts, setPosts] = useState([]);
   const [selectedPost, setSelectedPost] = useState(null);
   const getPosts = async () => {
-    const {data} = await api("/api/boards", "get")
+    const data = await getBoards();
     setPosts(data)
   }
   useEffect(() => {
