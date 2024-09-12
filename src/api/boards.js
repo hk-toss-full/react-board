@@ -19,7 +19,7 @@ export const deleteBoard = async (id)=>{
     return data
 }
 
-export const updateBoard = async (id)=>{
-    const {data} = await api(`/api/boards/${id}`, "put")
+export const updateBoard = async (id, {title, content})=>{
+    const {data} = await api(`/api/boards/${id}`, "put", {title, content})
     return data
 }
